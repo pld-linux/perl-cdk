@@ -8,7 +8,7 @@ Summary(pl):	Rozszerzenie Perla dla CDK
 Name:		perl-cdk
 Version:	20020728
 Release:	2
-License:	distributable 
+License:	distributable
 Group:		Development/Languages/Perl
 Source0:	ftp://dickey.his.com/cdk/cdk-perl-%{version}.tgz
 # Source0-md5:	f2b7524eecff707be0f6d32491ee30d8
@@ -36,7 +36,7 @@ dystrybucji Cdk dotycz± tak¿e tego rozszerzenia.
 find demos examples fulldemo -type f | xargs perl -pi -e 's|#.*?perl|#!%{_bindir}/perl|g'
 
 %{__perl} Makefile.PL \
-	INSTALLDIRS=vendor  
+	INSTALLDIRS=vendor
 %{__make} OPTIMIZE="%{rpmcflags}"
 
 %{!?_without_tests:%{__make} test}
@@ -47,14 +47,14 @@ install -d $RPM_BUILD_ROOT%{perl_vendorarch}
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT 
+	DESTDIR=$RPM_BUILD_ROOT
 
 install examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files 
+%files
 %defattr(644,root,root,755)
 %doc README CHANGES demos fulldemo
 %attr(755,root,root) %{perl_vendorarch}/auto/Cdk
