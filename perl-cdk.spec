@@ -7,7 +7,7 @@ Summary:	Perl extensions for CDK
 Summary(pl):	Rozszerzenie Perla dla CDK
 Name:		perl-cdk
 Version:	20020728
-Release:	1
+Release:	2
 License:	distributable 
 Group:		Development/Languages/Perl
 Source0:	ftp://dickey.his.com/cdk/cdk-perl-%{version}.tgz
@@ -34,14 +34,15 @@ dystrybucji Cdk dotycz± tak¿e tego rozszerzenia.
 %{__perl} -pi -e "s|'INC'\s*=>.*|'INC'=> '-I%{_includedir}/ncurses',|" Makefile.PL
 find demos examples fulldemo -type f | xargs perl -pi -e 's|#.*?perl|#!%{_bindir}/perl|g'
 
-%{__perl} Makefile.PL 
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor  
 %{__make} OPTIMIZE="%{rpmcflags}"
 
 %{!?_without_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{perl_archlib}
+install -d $RPM_BUILD_ROOT%{perl_vendorarch}
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
@@ -55,8 +56,8 @@ rm -rf $RPM_BUILD_ROOT
 %files 
 %defattr(644,root,root,755)
 %doc README CHANGES demos fulldemo
-%attr(755,root,root) %{perl_sitearch}/auto/Cdk
-%{perl_sitearch}/*.pm
-%{perl_sitearch}/Cdk
+%attr(755,root,root) %{perl_vendorarch}/auto/Cdk
+%{perl_vendorarch}/*.pm
+%{perl_vendorarch}/Cdk
 %dir %{_examplesdir}/%{name}-%{version}
 %attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*
