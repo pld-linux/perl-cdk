@@ -2,12 +2,11 @@
 Summary:	Perl extensions for CDK
 Summary(pl):	Rozszerzenie Perl dla CDK
 Name:		perl-cdk
-Version:	20010107
-Release:	5
+Version:	20010421
+Release:	1
 License:	distributable 
 Group:		Development/Languages/Perl
 Source0:	ftp://dickey.his.com/cdk/cdk-perl-%{version}.tgz
-Patch0:		%{name}-bugfix.patch
 BuildRequires:	perl >= 5.005_03-10
 BuildRequires:	cdk-devel
 BuildRequires:	rpm-perlprov
@@ -24,7 +23,6 @@ dystrybucji Cdk dotycz± tak¿e tego rozszerzenia.
 
 %prep
 %setup -q -n cdk-perl-%{version}
-%patch0 -p1
 
 %build
 perl -pi -e 's|/local/|/|g' Makefile.PL
