@@ -18,13 +18,13 @@ BuildRequires:	rpm-perlprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This is the Perl5 extension to the Cdk library written by Mike Glover.
-All the copyright notices from the Cdk C distribution also apply to
+This is the Perl5 extension to the CDK library written by Mike Glover.
+All the copyright notices from the CDK C distribution also apply to
 the extension.
 
 %description -l pl
-To jest rozszerzenie Perla do biblioteki Cdk. Wszystkie copyrighty z
-dystrybucji Cdk dotycz± tak¿e tego rozszerzenia.
+To jest rozszerzenie Perla do biblioteki CDK. Wszystkie copyrighty z
+dystrybucji CDK dotycz± tak¿e tego rozszerzenia.
 
 %prep
 %setup -q -n cdk-perl-%{version}
