@@ -29,12 +29,12 @@ dystrybucji Cdk dotycz± tak¿e tego rozszerzenia.
 %setup -q -n cdk-perl-%{version}
 
 %build
-perl -pi -e 's|/local/|/|g' Makefile.PL
-perl -pi -e 's|<cdk.h>|<cdk/cdk.h>|g' Cdk.xs
-perl -pi -e "s|'INC'\s*=>.*|'INC'=> '-I%{_includedir}/ncurses',|" Makefile.PL
+%{__perl} -pi -e 's|/local/|/|g' Makefile.PL
+%{__perl} -pi -e 's|<cdk.h>|<cdk/cdk.h>|g' Cdk.xs
+%{__perl} -pi -e "s|'INC'\s*=>.*|'INC'=> '-I%{_includedir}/ncurses',|" Makefile.PL
 find demos examples fulldemo -type f | xargs perl -pi -e 's|#.*?perl|#!%{_bindir}/perl|g'
 
-perl Makefile.PL 
+%{__perl} Makefile.PL 
 %{__make} OPTIMIZE="%{rpmcflags}"
 
 %{!?_without_tests:%{__make} test}
