@@ -7,8 +7,8 @@ Release:	1
 License:	distributable 
 Group:		Development/Languages/Perl
 Source0:	ftp://dickey.his.com/cdk/cdk-perl-%{version}.tgz
-BuildRequires:	perl >= 5.005_03-10
 BuildRequires:	cdk-devel
+BuildRequires:	perl >= 5.005_03-10
 BuildRequires:	rpm-perlprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,14 +40,12 @@ install -d $RPM_BUILD_ROOT%{perl_archlib}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT 
 
-gzip -9nf README BUGS CHANGES NOTES
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files 
 %defattr(644,root,root,755)
-%doc *.gz demos examples fulldemo
+%doc README BUGS CHANGES NOTES demos examples fulldemo
 %attr(755,root,root) %{perl_sitearch}/auto/Cdk
 %{perl_sitearch}/*.pm
 %{perl_sitearch}/Cdk
