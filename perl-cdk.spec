@@ -1,8 +1,12 @@
+#
+# Conditional build:
+# _without_tests - do not perform "make test"
+#
 %include	/usr/lib/rpm/macros.perl
 Summary:	Perl extensions for CDK
-Summary(pl):	Rozszerzenie Perl dla CDK
+Summary(pl):	Rozszerzenie Perla dla CDK
 Name:		perl-cdk
-Version:	20010421
+Version:	20020728
 Release:	1
 License:	distributable 
 Group:		Development/Languages/Perl
@@ -33,19 +37,26 @@ find demos examples fulldemo -type f | xargs perl -pi -e 's|#.*?perl|#!%{_bindir
 perl Makefile.PL 
 %{__make} OPTIMIZE="%{rpmcflags}"
 
+%{!?_without_tests:%{__make} test}
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{perl_archlib}
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT 
+
+install examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files 
 %defattr(644,root,root,755)
-%doc README BUGS CHANGES NOTES demos examples fulldemo
+%doc README CHANGES demos fulldemo
 %attr(755,root,root) %{perl_sitearch}/auto/Cdk
 %{perl_sitearch}/*.pm
 %{perl_sitearch}/Cdk
+%dir %{_examplesdir}/%{name}-%{version}
+%attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*
