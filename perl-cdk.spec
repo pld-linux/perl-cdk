@@ -31,7 +31,7 @@ perl -pi -e "s|'INC'\s*=>.*|'INC'=> '-I/usr/include/ncurses',|" Makefile.PL
 find demos examples fulldemo -type f | xargs perl -pi -e 's|#.*?perl|#!/usr/bin/perl|g'
 
 perl Makefile.PL 
-%{__make} OPTIMIZE="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}"
+%{__make} OPTIMIZE="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
