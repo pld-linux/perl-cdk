@@ -3,7 +3,7 @@ Summary:	Perl extensions for CDK
 Summary(pl):	Rozszerzenie Perl dla CDK
 Name:		perl-cdk
 Version:	20010107
-Release:	4
+Release:	5
 License:	distributable 
 Group:		Development/Languages/Perl
 Source0:	ftp://dickey.his.com/cdk/cdk-perl-%{version}.tgz
