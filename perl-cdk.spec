@@ -6,14 +6,6 @@ Version:	20010107
 Release:	4
 License:	distributable 
 Group:		Development/Languages/Perl
-Group(cs):	Vývojové prostøedky/Programovací jazyky/Perl
-Group(de):	Entwicklung/Sprachen/Perl
-Group(es):	Desarrollo/Lenguajes/Perl
-Group(fr):	Development/Langues/Perl
-Group(ja):	³«È¯/¸À¸ì/Perl
-Group(pl):	Programowanie/Jêzyki/Perl
-Group(pt):	Desenvolvimento/Linguagens/Perl
-Group(ru):	òÁÚÒÁÂÏÔËÁ/ñÚÙËÉ/Perl
 Source0:	ftp://dickey.his.com/cdk/cdk-perl-%{version}.tgz
 Patch0:		%{name}-bugfix.patch
 BuildRequires:	perl >= 5.005_03-10
