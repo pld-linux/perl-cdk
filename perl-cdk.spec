@@ -3,7 +3,7 @@ Summary:	Perl extensions for CDK
 Summary(pl):	Rozszerzenie Perl dla CDK
 Name:		perl-cdk
 Version:	20010107
-Release:	2
+Release:	3
 License:	distributable 
 Group:		Development/Languages/Perl
 Group(de):	Entwicklung/Sprachen/Perl
@@ -26,7 +26,8 @@ extension.
 
 %build
 perl -pi -e 's|/local/|/|g' Makefile.PL
-perl -pi -e "s|'INC'\s*=>.*|'INC'=> '-I/usr/include/cdk -I/usr/include/ncurses',|" Makefile.PL
+perl -pi -e 's|<cdk.h>|<cdk/cdk.h>|g' Cdk.xs
+perl -pi -e "s|'INC'\s*=>.*|'INC'=> '-I/usr/include/ncurses',|" Makefile.PL
 find demos examples fulldemo -type f | xargs perl -pi -e 's|#.*?perl|#!/usr/bin/perl|g'
 
 perl Makefile.PL 
