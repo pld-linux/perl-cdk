@@ -11,6 +11,7 @@ Release:	2
 License:	distributable 
 Group:		Development/Languages/Perl
 Source0:	ftp://dickey.his.com/cdk/cdk-perl-%{version}.tgz
+# Source0-md5:	f2b7524eecff707be0f6d32491ee30d8
 BuildRequires:	cdk-devel
 BuildRequires:	perl-devel >= 5.005_03-10
 BuildRequires:	rpm-perlprov
