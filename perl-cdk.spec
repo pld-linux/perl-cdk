@@ -13,7 +13,7 @@ Group:		Development/Languages/Perl
 Source0:	ftp://dickey.his.com/cdk/cdk-perl-%{version}.tgz
 BuildRequires:	cdk-devel
 BuildRequires:	perl >= 5.005_03-10
-BuildRequires:	rpm-perlprov
+BuildRequires:	rpm-perlprov >= 4.0.2-104
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
