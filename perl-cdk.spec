@@ -3,7 +3,7 @@ Summary:	Perl extensions for CDK
 Summary(pl):	Rozszerzenie Perl dla CDK
 Name:		perl-cdk
 Version:	20010107
-Release:	3
+Release:	4
 License:	distributable 
 Group:		Development/Languages/Perl
 Group(de):	Entwicklung/Sprachen/Perl
@@ -19,6 +19,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This is the Perl5 extension to the Cdk library written by Mike Glover.
 All the copyright notices from the Cdk C distribution also apply to the
 extension.
+
+%description -l pl
+To jest rozszerzenie Perla do biblioteki Cdk. Wszystkie copyrighty z
+dystrybucji Cdk dotycz± tak¿e tego rozszerzenia.
 
 %prep
 %setup -q -n cdk-perl-%{version}
