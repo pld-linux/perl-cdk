@@ -6,8 +6,14 @@ Version:	20010107
 Release:	4
 License:	distributable 
 Group:		Development/Languages/Perl
+Group(cs):	Vývojové prostøedky/Programovací jazyky/Perl
 Group(de):	Entwicklung/Sprachen/Perl
+Group(es):	Desarrollo/Lenguajes/Perl
+Group(fr):	Development/Langues/Perl
+Group(ja):	³«È¯/¸À¸ì/Perl
 Group(pl):	Programowanie/Jêzyki/Perl
+Group(pt):	Desenvolvimento/Linguagens/Perl
+Group(ru):	òÁÚÒÁÂÏÔËÁ/ñÚÙËÉ/Perl
 Source0:	ftp://dickey.his.com/cdk/cdk-perl-%{version}.tgz
 Patch0:		%{name}-bugfix.patch
 BuildRequires:	perl >= 5.005_03-10
@@ -17,8 +23,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This is the Perl5 extension to the Cdk library written by Mike Glover.
-All the copyright notices from the Cdk C distribution also apply to the
-extension.
+All the copyright notices from the Cdk C distribution also apply to
+the extension.
 
 %description -l pl
 To jest rozszerzenie Perla do biblioteki Cdk. Wszystkie copyrighty z
@@ -31,8 +37,8 @@ dystrybucji Cdk dotycz± tak¿e tego rozszerzenia.
 %build
 perl -pi -e 's|/local/|/|g' Makefile.PL
 perl -pi -e 's|<cdk.h>|<cdk/cdk.h>|g' Cdk.xs
-perl -pi -e "s|'INC'\s*=>.*|'INC'=> '-I/usr/include/ncurses',|" Makefile.PL
-find demos examples fulldemo -type f | xargs perl -pi -e 's|#.*?perl|#!/usr/bin/perl|g'
+perl -pi -e "s|'INC'\s*=>.*|'INC'=> '-I%{_includedir}/ncurses',|" Makefile.PL
+find demos examples fulldemo -type f | xargs perl -pi -e 's|#.*?perl|#!%{_bindir}/perl|g'
 
 perl Makefile.PL 
 %{__make} OPTIMIZE="%{rpmcflags}"
