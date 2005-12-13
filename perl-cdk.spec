@@ -32,7 +32,7 @@ dystrybucji CDK dotycz± tak¿e tego rozszerzenia.
 %build
 %{__perl} -pi -e 's|/local/|/|g' Makefile.PL
 %{__perl} -pi -e 's|<cdk.h>|<cdk/cdk.h>|g' Cdk.xs
-%{__perl} -pi -e "s|'INC'\s*=>.*|'INC'=> '-I%{_includedir}/ncurses',|" Makefile.PL
+%{__perl} -pi -e "s|'INC'\s*=>.*|'INC'=> '-I/usr/include/ncurses',|" Makefile.PL
 find demos examples fulldemo -type f | xargs perl -pi -e 's|#.*?perl|#!%{_bindir}/perl|g'
 
 %{__perl} Makefile.PL \
