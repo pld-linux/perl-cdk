@@ -4,7 +4,7 @@
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	Perl extensions for CDK
-Summary(pl):	Rozszerzenie Perla dla CDK
+Summary(pl.UTF-8):   Rozszerzenie Perla dla CDK
 Name:		perl-cdk
 Version:	20031210
 Release:	1
@@ -22,9 +22,9 @@ This is the Perl5 extension to the CDK library written by Mike Glover.
 All the copyright notices from the CDK C distribution also apply to
 the extension.
 
-%description -l pl
+%description -l pl.UTF-8
 To jest rozszerzenie Perla do biblioteki CDK. Wszystkie copyrighty z
-dystrybucji CDK dotycz± tak¿e tego rozszerzenia.
+dystrybucji CDK dotyczÄ… takÅ¼e tego rozszerzenia.
 
 %prep
 %setup -q -n cdk-perl-%{version}
