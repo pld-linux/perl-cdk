@@ -4,7 +4,7 @@
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	Perl extensions for CDK
-Summary(pl.UTF-8):   Rozszerzenie Perla dla CDK
+Summary(pl.UTF-8):	Rozszerzenie Perla dla CDK
 Name:		perl-cdk
 Version:	20031210
 Release:	1
