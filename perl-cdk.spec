@@ -10,8 +10,9 @@ Version:	20031210
 Release:	1
 License:	distributable
 Group:		Development/Languages/Perl
-Source0:	ftp://dickey.his.com/cdk/cdk-perl-%{version}.tgz
+Source0:	ftp://invisible-island.net/cdk/cdk-perl-%{version}.tgz
 # Source0-md5:	d5814507d7d2b5e3e7e5ababfa9e7d86
+URL:		http://invisible-island.net/cdk/
 BuildRequires:	cdk-devel
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov
