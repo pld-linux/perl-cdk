@@ -6,14 +6,14 @@
 Summary:	Perl extensions for CDK
 Summary(pl.UTF-8):	Rozszerzenie Perla dla CDK
 Name:		perl-cdk
-Version:	20031210
+Version:	20150928
 Release:	1
 License:	distributable
 Group:		Development/Languages/Perl
-Source0:	ftp://invisible-island.net/cdk/cdk-perl-%{version}.tgz
-# Source0-md5:	d5814507d7d2b5e3e7e5ababfa9e7d86
+Source0:	ftp://ftp.invisible-island.net/cdk/cdk-perl-%{version}.tgz
+# Source0-md5:	28bb44e50b15c94f0f6f6e86c5a69c96
 URL:		http://invisible-island.net/cdk/
-BuildRequires:	cdk-devel
+BuildRequires:	cdk-devel >= 5
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -31,10 +31,7 @@ dystrybucji CDK dotyczą także tego rozszerzenia.
 %setup -q -n cdk-perl-%{version}
 
 %build
-%{__perl} -pi -e 's|/local/|/|g' Makefile.PL
-%{__perl} -pi -e 's|<cdk.h>|<cdk/cdk.h>|g' Cdk.xs
-%{__perl} -pi -e "s|'INC'\s*=>.*|'INC'=> '-I/usr/include/ncurses',|" Makefile.PL
-find demos examples fulldemo -type f | xargs perl -pi -e 's|#.*?perl|#!%{_bindir}/perl|g'
+%configure
 
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
@@ -46,10 +43,9 @@ find demos examples fulldemo -type f | xargs perl -pi -e 's|#.*?perl|#!%{_bindir
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{perl_vendorarch}
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-%{__make} install \
+%{__make} pure_install \
 	DESTDIR=$RPM_BUILD_ROOT
 install examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
@@ -59,8 +55,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README CHANGES demos fulldemo
-%attr(755,root,root) %{perl_vendorarch}/auto/Cdk
-%{perl_vendorarch}/*.pm
+%{perl_vendorarch}/Cdk.pm
 %{perl_vendorarch}/Cdk
+%dir %{perl_vendorarch}/auto/Cdk
+%attr(755,root,root) %{perl_vendorarch}/auto/Cdk/Cdk.so
+%{perl_vendorarch}/auto/Cdk/autosplit.ix
 %dir %{_examplesdir}/%{name}-%{version}
 %attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*
