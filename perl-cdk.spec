@@ -36,7 +36,7 @@ dystrybucji CDK dotyczą także tego rozszerzenia.
 	INSTALLDIRS=vendor
 %{__make} \
 	CC="%{__cc}" \
-	OPTIMIZE="%{rpmcflags}"
+	OPTIMIZE="%{rpmcflags} -DNCURSES_INTERNALS"
 
 %{?with_tests:%{__make} test}
 
